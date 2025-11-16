@@ -5,6 +5,11 @@ edition = "2021"
 license = "MIT"
 description = "A High-level framework for creating zsh modules"
 readme = "../README.md"
+repository = "https://github.com/tobiashochguertel/zsh-module-rs"
+homepage = "https://github.com/tobiashochguertel/zsh-module-rs"
+documentation = "https://docs.rs/zsh-module"
+keywords = ["zsh", "shell", "module", "plugin", "ffi"]
+categories = ["command-line-utilities", "api-bindings"]
 
 [features]
 export_module = []
