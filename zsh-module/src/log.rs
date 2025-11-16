@@ -36,7 +36,7 @@ pub fn error_named(cmd: impl ToCString, msg: impl ToCString) {
 /// Prints out a warning message with a command name, like [`println!`]
 /// # Example
 /// ```no_run
-/// fn my_cd(action: &mut (), name: &str, args: &[&str]) -> zsh_module::MaybeError {
+/// fn my_cd(action: &mut (), name: &str, args: &[&str]) -> zsh_module::MaybeZError {
 ///     if args.len() > 1 {
 ///         zsh_module::warn_named!(name, "too much arguments!");
 ///     }
@@ -54,7 +54,7 @@ macro_rules! warn_named {
 /// Prints out an error message with a command name, like [`println!`]
 /// # Example
 /// ```no_run
-/// fn my_cd(action: &mut (), name: &str, args: &[&str]) -> zsh_module::MaybeError {
+/// fn my_cd(action: &mut (), name: &str, args: &[&str]) -> zsh_module::MaybeZError {
 ///     if args.len() > 1 {
 ///         zsh_module::error_named!(name, "too much arguments!");
 ///         return Err(todo!())

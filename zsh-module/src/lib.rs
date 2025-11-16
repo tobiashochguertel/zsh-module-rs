@@ -12,7 +12,7 @@
 //! ## Boilerplate
 //! On your `lib.rs`, you need to put a [`export_module!`] macro call, alongside a `setup` function
 //! (can be called whatever you want):
-//! ```no_run
+//! ```ignore
 //! use zsh_module::{ Module, ModuleBuilder };
 //!
 //! zsh_module::export_module!(my_module, setup);
@@ -35,8 +35,9 @@
 //! ## Storing User Data
 //! You can store user data inside a module and have it accessible from any callbacks.
 //! Here's an example module, located at  that defines a new `greet` builtin command:
-//! ```no_run
-//! use zsh_module::{Builtin, MaybeZError, Module, ModuleBuilder, Opts, StringArray};
+//! ```ignore
+//! use zsh_module::{Builtin, CStrArray, MaybeZError, Module, ModuleBuilder, Opts};
+//! use std::ffi::CStr;
 //!
 //! // Notice how this module gets installed as `rgreeter`
 //! zsh_module::export_module!(rgreeter, setup);
@@ -44,7 +45,7 @@
 //! struct Greeter;
 //!
 //! impl Greeter {
-//!     fn greet_cmd(&mut self, _name: &str, _args: StringArray, _opts: Opts) -> MaybeZError {
+//!     fn greet_cmd(&mut self, _name: &CStr, _args: CStrArray, _opts: Opts) -> MaybeZError {
 //!         println!("Hello, world!");
 //!         Ok(())
 //!     }
@@ -127,6 +128,8 @@ pub type MaybeZError<E = ZError> = Result<(), E>;
 /// [`Storing User Data`]: index.html#storing-user-data
 /// # Example
 /// ```
+/// use std::ffi::CStr;
+/// use zsh_module::CStrArray;
 /// fn hello_cmd(data: &mut (), _cmd_name: &CStr, _args: CStrArray, opts: zsh_module::Opts) -> zsh_module::MaybeZError {
 ///     println!("Hello, world!");
 ///     Ok(())

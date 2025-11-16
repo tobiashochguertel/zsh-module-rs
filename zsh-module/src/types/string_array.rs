@@ -4,8 +4,9 @@
 //! on the API.
 //!
 //! ```no_run
-//!    fn use_cstr_array(cstr_array: CStrArray) {
-//!        let cstr_array;
+//! use zsh_module::CStrArray;
+//! use std::ffi::CStr;
+//!    fn use_cstr_array(args: CStrArray) {
 //!        let arg: Option<&std::ffi::CStr> = args.get(0);
 //!        let arg_str: Option<Result<&str, std::str::Utf8Error>>  = args.get_str(0);
 //!        let arg: &CStr = &args[0];
@@ -20,7 +21,9 @@ use std::{
 
 /// A thin wrapper around a C string array. A.K.A null terminated pointer of strings
 /// ```no_run
-/// fn cmd(data: &(), name: &str, args: zsh_module::CStrArray, _opts: zsh_module::Opts) {
+/// use zsh_module::{CStrArray, Opts};
+/// use std::ffi::CStr;
+/// fn cmd(data: &(), name: &CStr, args: CStrArray, _opts: Opts) {
 ///     let arg: Option<&std::ffi::CStr> = args.get(0);
 ///     let arg_str: Option<Result<&str, std::str::Utf8Error>>  = args.get_str(0);
 ///     let arg: &CStr = &args[0];
