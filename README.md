@@ -7,22 +7,25 @@ This is a high level crate that allows you to define your own zsh module. It is 
 
 In the future, most zsh module functionality will be added. Feel free to send a PR if you would like to add more functionality :)
 
-Features: 
-  - [x] Define custom builtin commands
-    - [x] Define and query used flags
-  - [x] Call into `zsh`
-  - [ ] Query environment variables
-    - As a workaround: can be done using the `std::os` APIs.
-  - [ ] Use zsh's current `stdin` fd.
-    - You can use `std::io::stdin`, but it can break in specific ocasions.
-  - [ ] Define custom builtin math functions
-  - [ ] Define custom global variables
-  - [ ] More to come!
+Features:
+
+- [x] Define custom builtin commands
+  - [x] Define and query used flags
+- [x] Call into `zsh`
+- [ ] Query environment variables
+  - As a workaround: can be done using the `std::os` APIs.
+- [ ] Use zsh's current `stdin` fd.
+  - You can use `std::io::stdin`, but it can break in specific ocasions.
+- [ ] Define custom builtin math functions
+- [ ] Define custom global variables
+- [ ] More to come!
 
 ## Getting started
+
 Take a look at our online [documentation](https://docs.rs/zsh-module/latest/zsh-module) for a quick guide.
 
 ## Example module
+
 Making a module is very easy, here's an excerpt from our example module [`greeter`]
 
 ```rust
