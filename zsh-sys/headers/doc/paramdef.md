@@ -12,7 +12,7 @@ example
 
 output:
 ```
-Options: 
+Options:
 Arguments:
 Name: example
 
